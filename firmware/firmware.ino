@@ -4,12 +4,20 @@
   copyright 2016 (c) Tyler Spadgenske
 */
 
+#include "HX711.h"
+
 #define LEDPIN 7
 #define BATTERYSENSOR 0
 #define STAMPSSENSORA 4
 #define STAMPSSENSORB 2
 #define POSTITSENSOR A0
 #define PAPERCLIPSENSOR A1
+#define PAPERCLK A4
+#define PAPERDAT A3
+
+//initialize the hx711
+#define calibration_factor -7050.0
+HX711 scale(PAPERDAT, PAPERCLK);
 
 //initialize variables
 int stampSensorCount = 0;
@@ -32,10 +40,15 @@ void setup() {
     pinMode(PAPERCLIPSENSOR, INPUT);
     digitalWrite(PAPERCLIPSENSOR, HIGH);
 
+    //setup the load cell
+    scale.set_scale(calibration_factor);
+    scale.tare();
+
     Serial.begin();
 }
 
 void loop(){
+    Serial.println(scale.get_units(), 1);
     //poll sensors
     //check batteries
     if (digitalRead(BATTERYSENSOR) == HIGH) {
