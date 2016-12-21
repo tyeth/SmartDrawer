@@ -1,7 +1,7 @@
 /*
   IoT Smart Drawer
   version 1.0
-  copyright 2016 (c) Tyler Spadgenske
+  copyright (c) 2016 Tyler Spadgenske
 */
 
 #include "HX711.h"
@@ -21,9 +21,10 @@ HX711 scale(PAPERDAT, PAPERCLK);
 
 //initialize variables
 int stampSensorCount = 0;
-int stampCount = 100;
+int stampCount = 10;
 int PAPERCLIP_THRESHOLD = 3400;
-int POSTIT_THRESHOLD = 350;
+int POSTIT_THRESHOLD = 1000;
+float SCALE_THRESHOLD = 10.0;
 
 void setup() {
     // initialize the LED pin as an output:
@@ -48,11 +49,11 @@ void setup() {
 }
 
 void loop(){
-    Serial.println(scale.get_units(), 1);
     //poll sensors
     //check batteries
     if (digitalRead(BATTERYSENSOR) == HIGH) {
         Serial.println("Out of batteries");
+        Particle.publish("Batteries");
     }
     //check stamps
     if (digitalRead(STAMPSSENSORA) == 0 and digitalRead(STAMPSSENSORB) == 0) {
@@ -67,14 +68,22 @@ void loop(){
     //Check total stamp count
     if (stampCount <= 0) {
         Serial.println("Low on stamps");
+        Particle.publish("Stamps");
     }
     //check paperclips
     if (analogRead(PAPERCLIPSENSOR) < PAPERCLIP_THRESHOLD) {
         Serial.println("Low on paper clips");
+        Particle.publish("Paperclips");
     }
     //check postit! notes
     if (analogRead(POSTITSENSOR) > POSTIT_THRESHOLD) {
         Serial.println("Low on postit! notes");
+        Particle.publish("PostIt");
     }
-
+    //check paper
+    if (scale.get_units() > SCALE_THRESHOLD) {
+        Serial.println("Low on paper");
+        Particle.publish("Paper");
+    }
+    delay(10000);
 }
