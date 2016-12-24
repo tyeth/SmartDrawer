@@ -14,6 +14,7 @@
 #define PAPERCLIPSENSOR A1
 #define PAPERCLK A4
 #define PAPERDAT A3
+#define TAPESENSOR 1
 
 //initialize the hx711
 #define calibration_factor -7050.0
@@ -23,7 +24,7 @@ HX711 scale(PAPERDAT, PAPERCLK);
 int stampSensorCount = 0;
 int stampCount = 10;
 int PAPERCLIP_THRESHOLD = 3400;
-int POSTIT_THRESHOLD = 1000;
+int POSTIT_THRESHOLD = 300;
 float SCALE_THRESHOLD = 10.0;
 
 void setup() {
@@ -40,6 +41,7 @@ void setup() {
     digitalWrite(POSTITSENSOR, HIGH);
     pinMode(PAPERCLIPSENSOR, INPUT);
     digitalWrite(PAPERCLIPSENSOR, HIGH);
+    pinMode(TAPESENSOR, INPUT);
 
     //setup the load cell
     scale.set_scale(calibration_factor);
@@ -84,6 +86,11 @@ void loop(){
     if (scale.get_units() > SCALE_THRESHOLD) {
         Serial.println("Low on paper");
         Particle.publish("Paper");
+    }
+    //check tape
+    if (digitalRead(TAPESENSOR) == 1) {
+        Serial.println("Out of tape");
+        Particle.publish("Tape");
     }
     delay(10000);
 }
