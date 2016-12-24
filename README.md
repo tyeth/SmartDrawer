@@ -1,14 +1,8 @@
-# IoT Smart Drawer
-copyright (c) 2016 Tyler Spadgenske </br>
+# IoT Smart Drawer AWS Setup
+copyright :copyright: 2016 Tyler Spadgenske </br>
 
-Never run out of essential office supplies with the internet connected Smart Drawer using the Particle Core.
-Monitor your: </br>
-* AA Battery supply
-* Stamps
-* PostIt! Notes
-* Staples
-* Paper Clips
-* Letter Paper
+This branch contains the code for the Dash Replenishment Service setup code hosted on https://spadgenske.github.io/smartdrawer</br>
+Some of the code is based on Ravi Butani's work for his "DRS for Sanitization needs of Baby" project. https://www.hackster.io/ravi-butani/drs-for-sanitization-needs-of-baby-25b391?ref=userrespected&ref_id=44113&offset=1
 
 ### Learn More
-*Coming Soon!*
+https://www.hackster.io/Mach_5/iot-smart-desk-drawer-4bc528
