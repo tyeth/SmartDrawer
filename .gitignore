@@ -15,7 +15,7 @@ $RECYCLE.BIN/
 *.msp
 
 #3D print files 
-*.stl
+#*.stl
 *.gcode
 
 # Windows shortcuts
