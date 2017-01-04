@@ -1,5 +1,5 @@
 # IoT Smart Drawer
-copyright (c) 2016 Tyler Spadgenske </br>
+copyright :copyright: 2016 Tyler Spadgenske </br>
 
 Never run out of essential office supplies with the internet connected Smart Drawer using the Particle Core.
 Monitor your: </br>
@@ -11,4 +11,4 @@ Monitor your: </br>
 * Letter Paper
 
 ### Learn More
-*Coming Soon!*
+https://www.hackster.io/Mach_5/iot-smart-desk-drawer-4bc528

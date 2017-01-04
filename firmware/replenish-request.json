@@ -1,0 +1,10 @@
+//json
+{
+  "Authorization": "{{PARTICLE_EVENT_VALUE}}"
+}
+//headers
+{
+  "Authorization": "{{PARTICLE_EVENT_VALUE}}",
+  "x-amzn-type-version": "com.amazon.dash.replenishment.DrsReplenishInput@1.0",
+  "x-amzn-accept-type": "com.amazon.dash.replenishment.DrsReplenishResult@1.0"
+}
