@@ -43,7 +43,7 @@ function lwaFunction() {
         var x1 = document.getElementById("frm1");
         var productid = String(x1.elements[0].value);
         var serialno = String(x1.elements[1].value);
-        var clientid = "application-oa2-client.1d46c0b931e74813bda81d4e1c776b1c";
+        var clientid = "amzn1.application-oa2-client.6ece4f138f8c4a81bc904a0ec9b4018c";
         window.open("https://www.amazon.com/ap/oa?client_id="+clientid+"&scope=dash%3Areplenish&scope_data=%7B%22dash%3Areplenish%22%3A%7B%22device_model%22%3A%22"+productid+"%22%2C%22serial%22%3A%22"+serialno+"%22%2C%22is_test_device%22%3Atrue%7D%7D&response_type=code&redirect_uri=https://spadgenske.github.io/SmartDrawer/redirect");
     }
 }
