@@ -15,8 +15,8 @@ Please press config button on your device and enter above Authorisation Code to 
 <h1>
 Register for Amazon DRS..</h1>
 <form action="form_action.asp" id="frm1">
-  <b>PRODUCT MODEL ID </b> <br /> <input maxlength="36" name="pname" size="38" style="text-align: center;" type="text" value="dc601aca-1fd9-454d-9d43-11751ddd7bbf" /><br /><br />
-  <b>SERIAL NO </b><br /> <input maxlength="12" name="sname" size="14" style="text-align: center;" type="text" value="abcDe1234567" /><br /><br />
+  <b>PRODUCT MODEL ID </b> <br /> <input maxlength="36" name="pname" size="38" style="text-align: center;" type="text" value="WCPAPER002" /><br /><br />
+  <b>SERIAL NO </b><br /> <input maxlength="12" name="sname" size="14" style="text-align: center;" type="text" value="WCPAPER00201" /><br /><br />
   <input onclick="lwaFunction()" type="button" value="Login with Amazon" />
 </form>
 </div>
@@ -43,7 +43,8 @@ function lwaFunction() {
         var x1 = document.getElementById("frm1");
         var productid = String(x1.elements[0].value);
         var serialno = String(x1.elements[1].value);
-        window.open("https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.62df7f3857a44807b183bd3a3a2170a6&scope=dash%3Areplenish&scope_data=%7B%22dash%3Areplenish%22%3A%7B%22device_model%22%3A%22"+productid+"%22%2C%22serial%22%3A%22"+serialno+"%22%2C%22is_test_device%22%3Atrue%7D%7D&response_type=code&redirect_uri=https://spadgenske.github.io/SmartDrawer/redirect");
+        var clientid = "application-oa2-client.1d46c0b931e74813bda81d4e1c776b1c";
+        window.open("https://www.amazon.com/ap/oa?client_id="+clientid+"&scope=dash%3Areplenish&scope_data=%7B%22dash%3Areplenish%22%3A%7B%22device_model%22%3A%22"+productid+"%22%2C%22serial%22%3A%22"+serialno+"%22%2C%22is_test_device%22%3Atrue%7D%7D&response_type=code&redirect_uri=https://spadgenske.github.io/SmartDrawer/redirect");
     }
 }
 function fstFunction() {
